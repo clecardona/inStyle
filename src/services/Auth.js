@@ -20,8 +20,8 @@ class Auth {
     }
 
     logout() {
-        this.setLoggedIn(false);
-        this._clearToken();
+        localStorage.setItem('isIn',false)  
+    window.location.reload()
     }
 
     bindLoggedInStateSetter(loggedInStateSetter) {

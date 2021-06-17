@@ -1,7 +1,6 @@
 import {React,useState} from 'react'
-
 import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget'
-import ApiCalls from "../api/ApiCalls";
+
 
 
 
@@ -26,10 +25,10 @@ export default function  UploadWidget({avatar}) {
       setUrl(result.info.secure_url)
       
       if (avatar === true){
-        ApiCalls.updateAvatar(result.info.secure_url);  
+        //ApiCalls.updateAvatar(result.info.secure_url);  
 
       }else{
-      ApiCalls.addPictureToCurrentUser(result.info.secure_url);
+      //ApiCalls.addPictureToCurrentUser(result.info.secure_url);
     }
       alert("Picture succesfully send 🙌")
       window.location.reload();

@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ApiCalls from "../api/ApiCalls";
 import like from "../assets/img/logo/flame.png";
 import dislike from "../assets/img/logo/oops.png";
 
@@ -12,8 +11,8 @@ export default function VoteComponent({hide, refresh, pictureId }) {
   async function handleLike() {
     
      await Promise.all([
-      ApiCalls.addLike(pictureId), 
-      ApiCalls.addVotedPictureToCurrentUser(pictureId)
+      //ApiCalls.addLike(pictureId), 
+      //ApiCalls.addVotedPictureToCurrentUser(pictureId)
     ])
     if(refresh){
       window.location.reload()
@@ -26,8 +25,8 @@ export default function VoteComponent({hide, refresh, pictureId }) {
   async function handleDislike() {
     
     await Promise.all([
-     ApiCalls.addDislike(pictureId), 
-     ApiCalls.addVotedPictureToCurrentUser(pictureId)
+     //ApiCalls.addDislike(pictureId), 
+     //ApiCalls.addVotedPictureToCurrentUser(pictureId)
    ])
    if(refresh){
      window.location.reload()

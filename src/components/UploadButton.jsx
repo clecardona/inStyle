@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import Overlay from "react-overlay-component";
 import Methods from '../services/Methods'
 import AuthApi from "../api/AuthApi";
-import ApiCalls from "../api/ApiCalls";
 import UploadWidget from "../components/UploadWidget"
 
 
@@ -61,13 +60,13 @@ const votesNeeded = Math.floor(( 10 - (numberOfvotes / numberOfPicturesOwned) -1
  const randomPicUrl = Methods.getRandompictureUrl()
 //console.log(randomPicUrl)
 
-async function addPic() {
+/* async function addPic() {
 
      await ApiCalls.addPictureToCurrentUser(randomPicUrl);
      alert("Picture succesfully send 🙌")
      closeOverlay()
      window.location.reload();
-   }
+   } */
 
 
   return (

@@ -1,7 +1,6 @@
 // NPM Packages
-
-import firebase from "firebase/app";
-// Firebase products 
+import firebase from "firebase";
+// Firebase products
 import "firebase/auth";
 import "firebase/firestore";
 
@@ -20,58 +19,54 @@ import Footer from "./components/Footer";
 import UploadButton from "./components/UploadButton";
 import HeaderBackground from "./components/HeaderBackground";
 import ToggleLanguage from "./components/ToggleLanguage";
-import ApiCalls from "./api/ApiCalls";
 
 //Test pages
-import TestPage from "./pages/TestPage/TestPage";
 import TestMethods from "./services/TestMethods";
 
 export default function App() {
   // State
-  const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
-  const [status, setStatus] = useState(0); // 0 = loading data, 1 = data loaded, 2 = error;
+  const [loggedIn, setLoggedIn] = useState(JSON.parse(localStorage.getItem('isIn')));
+  const [status, setStatus] = useState(1); // 0 = loading data, 1 = data loaded, 2 = error;
   const [users, setUsers] = useState([]);
 
   const MOCKUP_URL = "https://api.jsonbin.io/b/609a7407e0aabd6e191b79d7/1";
   const url = MOCKUP_URL;
+  
   const json_mockup = require("./api/api_users.json");
   const musers = json_mockup;
+  
 
   // Constants
-  Auth.bindLoggedInStateSetter(setLoggedIn);
+  //Auth.bindLoggedInStateSetter(setLoggedIn);
+//console.log(loggedIn)
 
   //Methods
-  //setting the favicon
-  useEffect(() => {
-    document.title = "[in]Style ";
-  }, []);
 
 
-  //Fetching data
-  useEffect(
-    async () => {
-
-      if(loggedIn){
-try {
-        const res = await  ApiCalls.getAllUsers();
-        //console.log(res.data);
-        setUsers(res.data);
-        setStatus(1);
-       
-
-    } catch (err) {
-        // Handle Error Here
-        console.error(err);
-        console.log("Error", err);
-    setStatus(2);
+ 
+  //initialize app
+  function initializeFirebase() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyD1DP3Fg9S8UEKKpyt7XknY6vickoJ3eFs",
+      authDomain: "instyle-3f5f5.firebaseapp.com",
+      databaseURL:
+        "https://instyle-3f5f5-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "instyle-3f5f5",
+      storageBucket: "instyle-3f5f5.appspot.com",
+      messagingSenderId: "8399215605",
+      appId: "1:8399215605:web:09ba5877b522ef0abe5ebc",
+    };
+    //initialize firebase
+    if (firebase.apps.length === 0) {
+      firebase.initializeApp(firebaseConfig);
     }
-      }
-    },
-    [loggedIn]
-  );
+  }
+  initializeFirebase();
 
-  //console.log("users",users,status)
-  ///////////////
+  //TODO - Fetching data
+ 
+console.log("data",musers)
+console.log("loggedIn ?",loggedIn)
 
   // Components
   const loggedInRouter = (
@@ -88,40 +83,35 @@ try {
                 path="/profile/:userEmail"
                 component={(props) => (
                   <ProfilePage
-                    users={users}
+                    users={musers}
                     userToDisplay={props.match.params.userEmail}
                   />
                 )}
               />{" "}
               {/* ok */}
               <Route path="/discover">
-                <DiscoverPage users={users} /> {/* ok */}
+                <DiscoverPage users={musers} /> {/* ok */}
               </Route>
               <Route path="/vote">
-                <VotingPage users={users} /> {/* ok */}
+                <VotingPage users={musers} /> {/* ok */}
               </Route>
               <Route exact path="/">
                 {loggedIn ? <Redirect to="/winner" /> : <AuthPage />}
               </Route>
               <Route path="/winner">
-                <WinnerPage users={users} /> {/* ok */}
+                <WinnerPage users={musers} /> {/* ok */}
               </Route>
               {/* TESTING ROUTES */}
-              <Route path="/test">
-                <TestPage /> {/* not needed here*/}
-              </Route>
               <Route path="/testmethods">
-                <TestMethods users={users} /> {/* ok */}
+                <TestMethods users={musers} /> {/* ok */}
               </Route>
-
               <Route path="/login">
-              <AuthPage />
+                <AuthPage />
               </Route>
-
             </Switch>
 
-            <Footer loggedIn={loggedIn}/>
-            <UploadButton users={users} />
+            <Footer loggedIn={loggedIn} />
+            <UploadButton users={musers} />
           </div>
         )}
       </div>

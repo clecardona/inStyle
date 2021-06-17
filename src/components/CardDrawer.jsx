@@ -1,9 +1,7 @@
 // NPM packages
 import React from "react";
 import { useState, useEffect } from "react";
-import ApiCalls from "../api/ApiCalls";
 import AuthApi from "../api/AuthApi";
-import Methods from "../services/Methods"
 
 export default function CardDrawer({pictureId }) {
  
@@ -29,8 +27,8 @@ export default function CardDrawer({pictureId }) {
   };
 
 
-  //Fetching commments
-
+  //TODO-Fetching commments
+/* 
   useEffect( async () => {
     try {
     const res = await ApiCalls.getCommentsById(pictureId)
@@ -43,17 +41,17 @@ export default function CardDrawer({pictureId }) {
     }  
       
   }, [refresh]);
-
+ */
 
   
 
   async function addComment(pictureId, commentBody) {
-    await ApiCalls.addComment(pictureId, commentBody);
+    //await ApiCalls.addComment(pictureId, commentBody);
     setRefresh(!refresh);
   }
 
   async function deleteComment(commentId) {
-    await ApiCalls.deleteComment(commentId);
+    //await ApiCalls.deleteComment(commentId);
     setRefresh(!refresh);
   }
 

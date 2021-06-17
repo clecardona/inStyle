@@ -19,19 +19,22 @@ export default function WinnerPage({users}) {
   // Constants  
 const [t, i18n] = useTranslation('common');
 
-    
+const mWinnerPicUrl = "https://i.pinimg.com/originals/bf/7e/6f/bf7e6f75de912ec9b0fe0136ace95332.jpg"
 
 
- const winnerId = Methods.getWinner(users)[0];
+/*  const winnerId = Methods.getWinner(users)[0];
  const winnerPicId = Methods.getWinner(users)[1] 
   const winner = Methods.getUserById(users,winnerId)
 
  const winnerPic = winner.pictures.filter(function (item) {
   return item.id === winnerPicId ;
-}); 
+});  */
 
-console.log(winnerPic)
+//console.log(winnerPic)
 
+const winnerId = 1;
+const winner = Methods.getUserById(users,winnerId);
+const winnerPic = winner.pictures[0];
 
   return (
     <div className="general-container">
@@ -54,12 +57,12 @@ console.log(winnerPic)
             
             <div>
             <div className="wrapper-img-square">
-              <img id="main-img" src={winnerPic[0].url} alt="main-img" />
+              <img id="main-img" src={winnerPic.url} alt="main-img" />
            
             <div className = "winner-score">
               
               <img className="img-70" src={like} alt="logo-like" />
-              <p className = "winner-score-text">{winnerPic[0].likes} </p>
+              <p className = "winner-score-text">200 </p>
               
               
               </div>
@@ -67,9 +70,9 @@ console.log(winnerPic)
             </div>
  </div>
 
- <div className="score-timestamp">
+{/*  <div className="score-timestamp">
             Posted - <Moment fromNow>{winnerPic[0].timestamp}</Moment>
-          </div>
+          </div> */}
 
             <div className="under-img-container">
               <a href= {"http://www.instagram.com/" + winner.instagram} target="blank" className="btn-blue">{t("winner.button")} </a>

@@ -5,8 +5,6 @@ import { useTranslation } from "react-i18next";
 import Auth from "../services/Auth";
 import Overlay from "react-overlay-component";
 import edit from "../assets/img/icons/pen.svg";
-import ApiCalls from "../api/ApiCalls";
-import Methods from "../services/Methods";
 import UploadWidget from "../components/UploadWidget";
 
 export default function EditProfileButton() {
@@ -31,7 +29,7 @@ export default function EditProfileButton() {
     if (username.length < 5) {
       alert("Please enter 5 characters minimum ");
     } else {
-      await ApiCalls.updateUsername(username);
+      //await ApiCalls.updateUsername(username);
       //alert("Username succesfully updated ");
       closeOverlay();
       window.location.reload();
@@ -41,7 +39,7 @@ export default function EditProfileButton() {
 
   async function updateInstagram() {
    
-      await ApiCalls.updateInstagram(instagram);
+      //await ApiCalls.updateInstagram(instagram);
       //alert("Instagram succesfully updated ");
       closeOverlay();
       window.location.reload();

@@ -9,7 +9,7 @@ import Auth from "../../services/Auth";
 import AuthApi from "../../api/AuthApi";
 import SlidingMenu from "../../components/SlidingMenu";
 import Methods from "../../services/Methods";
-import ApiCalls from "../../api/ApiCalls";
+
 
 export default function VotingPage({ users }) {
   // Constants
@@ -21,14 +21,14 @@ export default function VotingPage({ users }) {
 
   const currentUserEmail = AuthApi.getCurrentUser();
 
-  useEffect(async () => {
+/*   useEffect(async () => {
     const res = await ApiCalls.getVotedPictures();
     try {
       onFetchSuccess(res.data);
     } catch (err) {     
       onFetchFail(err);     
     }
-  }, []);
+  }, []); */
 
   function onFetchSuccess(res) {
     setVotedPictures(res);    

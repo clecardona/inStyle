@@ -17,8 +17,7 @@ export default function Footer() {
 
 
   function onLogout() {
-    Auth.logout();  
-
+    Auth.logout()
   }
 
   const currentUserEmail = AuthApi.getCurrentUser();

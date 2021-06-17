@@ -1,32 +1,65 @@
 // NPM Packages
 import {React} from "react";
 import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
+import firebase from "firebase/app";
+// Firebase products 
+import "firebase/auth";
+import "firebase/firestore";
 
 // Project files
 import "../../styles/base.css";
 import Auth from "../../services/Auth";
-import background from "../../assets/img/landingBackground.gif";
-import Popup from "../../components/Popup";
 import LandingOverlay from "../../components/LandingOverlay";
 
 export default function LoginPage() {
   //constants
   
   // Methods
-  async function login(loginData) {
-    const loginSuccess = await Auth.login(loginData);
+  async function register({username,email,password}) {
     
-    if (!loginSuccess) {
-      alert("Invalid credentials");
-    }
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        //Auth.setLoggedIn(true);
+        localStorage.setItem('isIn', true)
+        alert("Account created")
+        // Signed in
+        var user = userCredential.user;
+        console.log(user)
+        window.location.reload()
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert("Invalid data ")
+        // ..
+      });
     
+      sessionStorage.setItem("username", username);
+
   }
 
-  async function register(registrationData) {
-    const registerSuccess = await Auth.register(registrationData);
-    if (!registerSuccess) {
-      alert("Couldn't register check credentials and try again");
-    }
+  async function login({email, password}) {
+
+   await  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    //Auth.setLoggedIn(true);
+    localStorage.setItem('isIn', true)
+
+    alert("welcome back")
+    var user = userCredential.user;
+    console.log(user)
+    window.location.reload()
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert("Invalid username or password ")
+  });
+
     
   }
   return (

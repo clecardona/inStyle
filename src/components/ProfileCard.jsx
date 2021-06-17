@@ -4,7 +4,6 @@ import like from "../assets/img/logo/flame.png";
 import AuthApi from "../api/AuthApi";
 import dislike from "../assets/img/logo/oops.png";
 import VoteComponent from "./VoteComponent";
-import ApiCalls from "../api/ApiCalls";
 import CardDrawer from "./CardDrawer";
 
 
@@ -23,7 +22,7 @@ export default function ProfileCard({ users,item, userToDisplay }) {
 
     if (window.confirm('Are you sure you want delete that picture ?')) {
       // Delete it!
-      await ApiCalls.deletePictureById(pictureId)  
+      /* await ApiCalls.deletePictureById(pictureId)  */ 
       //alert("picture deleted")  
       window.location.reload()
     } else {
