@@ -30,7 +30,7 @@ export default function SlidingMenu() {
 
   return (
     <Menu>
-      <div className="menu-title">[In]style</div>
+      <div className="menu-title">Menu</div>
       <hr />
       <div className="menu-item">
         <img className="img-30" src={king} />
@@ -63,7 +63,7 @@ export default function SlidingMenu() {
           {t("sidebar.vote")}
         </a>
       </div>
-
+      <hr />
       <div className="burger-footer">
         <span className="burger-footer-item">
           <a
