@@ -1,0 +1,206 @@
+
+
+
+html{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   overflow: scroll;
+}
+
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+   
+}
+
+a{
+    color: inherit;
+    font-style: unset;
+    text-decoration: unset;
+    cursor: pointer;
+}
+
+ul{
+    padding: 0;
+}
+
+p{
+    margin:0;
+}
+
+h1{
+    text-align: right;
+    font-size: var(--font-S);
+    margin: 0;
+
+}
+h2{
+    margin: 5px 8px;
+    font-size: var(--font-S);
+   
+
+}
+h3{
+
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+h5{
+    color:#2c9eb4;
+    font-size:var(--font-S);
+    font-style: var(--font-classy);
+}
+
+.page-title{
+
+    
+    width: fit-content ;
+   
+    text-align: left;    
+    padding: 6px 20px;
+    background: #f1f1f100;
+    
+    border-radius:15px 15px 0 0;
+     
+    
+   
+    
+}
+
+/* background of the card container */ 
+
+.title-wrapper{
+    
+       
+    display: flex;  
+
+    flex-direction: column;
+    justify-content: center;
+
+    padding:  10px;
+    margin-bottom: 80px;
+   
+
+    border-radius:0 15px 15px 15px;
+    
+  
+
+}
+
+.page-title-vote h1{
+    background-color: rgba(255, 255, 255, 0);
+    width: fit-content;
+    
+
+    
+    
+    padding: 5px 15px  ;
+
+    z-index: 10;
+}
+
+
+
+
+/** media queries tablets  */
+@media screen and (min-width: 800px) {
+.page-title,.title-wrapper{
+    background: #f1f1f1;
+    box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.356);  
+}
+
+   
+
+.winner-content{
+    background-color: white;
+    border : 2px solid #c9c9c9;
+    padding: 5px 5px 20px 5px  ;
+    border-radius:0 15px 15px 15px ;
+}
+.page-title-vote h1{
+    position: relative;
+    top:2px;
+    border : 2px solid #c9c9c9;
+    border-bottom: 2px solid white ;
+    border-radius: 15px 15px 0 0 ;
+
+    background-color: white;
+   
+}
+  
+
+
+}
+
+
+
+strong{
+  
+    padding:5px;
+    border: 3px solid white ;
+    margin-right: 2px;
+    
+}
+
+
+img{
+width: 100%;
+}
+
+.img-20{
+   height: 20px;
+    width:auto;  
+    object-fit: cover; 
+}
+.img-30{
+    height: 30px;
+     width:auto;   
+     object-fit: cover;
+ }
+ .img-40{
+    height: 40px;
+     width:40px; 
+     object-fit: cover;
+ }
+ .img-50{
+    height: 50px;
+     width:50px;   
+     object-fit: cover;
+ }
+
+ .img-60{
+    height: 60px;
+     width:60px;    
+     object-fit: cover;
+ }
+
+ .img-70{
+    height: 70px;
+     width:70px;   
+     object-fit: cover;
+ }
+ 
+.img-profile-100{
+   
+    height: 100px;  
+    width: 100px;  
+    border-radius: 50%;
+    border: 2px solid rgb(215, 218, 67);
+     
+    background-color: white;
+    object-fit: cover;
+    object-position: top;
+}
+
+.page-title-vote{
+   
+   display: flex;
+   justify-content: flex-start;
+  
+}
+
+
+
+
