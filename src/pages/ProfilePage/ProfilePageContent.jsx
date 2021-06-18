@@ -18,18 +18,17 @@ export default function ProfilePageContent({ users, userToDisplay }) {
   const currentUserEmail = AuthApi.getCurrentUser();
 
   const winnerId = Methods.getWinner(users)[0];
-  const userToDisplayId = Methods.getIdByEmail(users, userToDisplay);
+  const userToDisplayMail = users[userToDisplay-1].email
+  console.log(userToDisplayMail)
 
-  //console.log(userToDisplay)
+  const likes = Methods.getTotalLikesByEmail(users, userToDisplayMail);
+  const dislikes = Methods.getTotalDislikesByEmail(users, userToDisplayMail);
 
-  const likes = Methods.getTotalLikesByEmail(users, userToDisplay);
-  const dislikes = Methods.getTotalDislikesByEmail(users, userToDisplay);
+  const username = Methods.getUsernameByEmail(users, userToDisplayMail);
+  const instagram = Methods.getInstagramByEmail(users, userToDisplayMail);
 
-  const username = Methods.getUsernameByEmail(users, userToDisplay);
-  const instagram = Methods.getInstagramByEmail(users, userToDisplay);
-
-  const avatar = Methods.getAvatarByEmail(users, userToDisplay);
-  const pics = Methods.getPicturesByEmail(users, userToDisplay);
+  const avatar = Methods.getAvatarByEmail(users, userToDisplayMail);
+  const pics = Methods.getPicturesByEmail(users, userToDisplayMail);
   const votes = Methods.getVotesByEmail(users, currentUserEmail);
 
   return (
@@ -39,7 +38,7 @@ export default function ProfilePageContent({ users, userToDisplay }) {
           <div className="profilepage-subcontainer">
             <div className="profilepage-box-left">
               <div className="profilepage-box-left-header">
-                {userToDisplayId === winnerId && (
+                {userToDisplay === winnerId && (
                   <img className="crown img-40" src={king} />
                 )}
 

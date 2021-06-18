@@ -36,7 +36,7 @@ return (
         </a>
 
         <a>{/* Keep it empty */}</a>
-        <a href="http://localhost:3000/winner" className="item">
+        <a href="/winner" className="item">
           <FontAwesomeIcon icon={faChessKing} />
         </a>
 

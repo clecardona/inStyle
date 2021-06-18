@@ -9,7 +9,7 @@ export default function UserMeta({ winnerId, user }) {
 
       <img className="img-40" src={user.avatar} alt="thumb" />
       <div className="user-meta-legend">
-        <a href={"/profile/" + user.email}>
+        <a href={"/profile/" + user.id}>
           <p className="user-username">{user.username}</p>
         </a>
 

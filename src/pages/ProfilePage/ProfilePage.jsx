@@ -11,7 +11,7 @@ import AuthApi from "../../api/AuthApi";
 
 export default function ProfilePage({ users, userToDisplay}) {
 
-const currentUserEmail = AuthApi.getCurrentUser();
+//const currentUserEmail = AuthApi.getCurrentUser();
 
 
   return (

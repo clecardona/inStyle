@@ -42,8 +42,6 @@ export default function App() {
 
   //Methods
 
-
- 
   //initialize app
   function initializeFirebase() {
     const firebaseConfig = {
@@ -80,11 +78,11 @@ console.log("loggedIn ?",loggedIn)
           <div>
             <Switch>
               <Route
-                path="/profile/:userEmail"
+                path="/profile/:userId"
                 component={(props) => (
                   <ProfilePage
                     users={musers}
-                    userToDisplay={props.match.params.userEmail}
+                    userToDisplay={props.match.params.userId}
                   />
                 )}
               />{" "}
