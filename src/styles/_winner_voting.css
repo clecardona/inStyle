@@ -114,8 +114,8 @@
   object-fit: cover;
   object-position: top;
 
-  opacity: 80%;
-  background-blend-mode: multiply;
+  /* opacity: 80%; */
+  /* background-blend-mode: multiply; */
 }
 
 .under-img-container{
