@@ -20,7 +20,7 @@ class Methods {
 
       return item.email === userMail
          })
-         
+         console.log(user)
          return  user[0].id
   }
 

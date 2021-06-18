@@ -10,24 +10,25 @@ import { faChessKing, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 import Auth from "../services/Auth";
+import Methods from "../services/Methods";
 
-import AuthApi from "../api/AuthApi";
-
-export default function Footer() {
+export default function Footer({users}) {
 
 
   function onLogout() {
     Auth.logout()
   }
 
-  const currentUserEmail = AuthApi.getCurrentUser();
+  //const currentUserEmail = sessionStorage.getItem("currentUser")
+  const currentUserId = 4 /* Methods.getIdByEmail(users,"powerrangers@gmail.com") */
+ 
 
 
 
 return (
     <div className="footer">
       <div className="footer-container">
-        <a href={"/profile/" + currentUserEmail} className="item">
+        <a href={"/profile/" + currentUserId} className="item">
           <FontAwesomeIcon icon={faUser} />
         </a>
 

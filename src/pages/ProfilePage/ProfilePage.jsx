@@ -17,7 +17,7 @@ export default function ProfilePage({ users, userToDisplay}) {
   return (
     <div className="general-container">
       <header>
-        <SlidingMenu />
+        <SlidingMenu users ={users}/>
         <div className="nav-container">
           <NavBar onLogout={() => Auth.logout()} />
         </div>

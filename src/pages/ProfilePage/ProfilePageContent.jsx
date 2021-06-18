@@ -15,7 +15,9 @@ export default function ProfilePageContent({ users, userToDisplay }) {
   // Constants
   const Popover = ReactAwesomePopover;
   const [t, i18n] = useTranslation("common");
-  const currentUserEmail = AuthApi.getCurrentUser();
+
+  const currentUserEmail = sessionStorage.getItem("currentUser")
+  console.log(currentUserEmail)
 
   const winnerId = Methods.getWinner(users)[0];
   const userToDisplayMail = users[userToDisplay-1].email

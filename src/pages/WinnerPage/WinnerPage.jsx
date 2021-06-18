@@ -1,6 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Moment from "react-moment";
+import firebase from "firebase";
+// Firebase products
+import "firebase/auth";
+import "firebase/firestore";
 
 import "../../styles/base.css";
 import NavBar from "../../components/Navbar";
@@ -32,14 +36,17 @@ const mWinnerPicUrl = "https://i.pinimg.com/originals/bf/7e/6f/bf7e6f75de912ec9b
 
 //console.log(winnerPic)
 
-const winnerId = 1;
+const winnerId = 4;
 const winner = Methods.getUserById(users,winnerId);
 const winnerPic = winner.pictures[0];
+
+//const currentUserMail = sessionStorage.getItem("currentUser")
+//console.log(currentUserMail)
 
   return (
     <div className="general-container">
       <header>
-      <SlidingMenu />
+      <SlidingMenu users ={users}/>
       <div className="nav-container">
         <NavBar onLogout={() => Auth.logout()} />
       </div>

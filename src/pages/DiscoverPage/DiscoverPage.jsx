@@ -13,7 +13,10 @@ import Methods from "../../services/Methods";
 export default function DiscoverPage({ users }) {
   // Constants
   const [t, i18n] = useTranslation("common");
-  const currentUserEmail = AuthApi.getCurrentUser();
+
+  const currentUserEmail = sessionStorage.getItem("currentUser")
+  console.log(currentUserEmail)
+
   const shuffledUsers = Methods.randomArrayShuffle(users);
 
   const winnerId = Methods.getWinner(users)[0];
@@ -22,7 +25,7 @@ export default function DiscoverPage({ users }) {
   return (
     <div className="general-container">
       <header>
-        <SlidingMenu />
+        <SlidingMenu users ={users}/>
         <NavBar onLogout={() => Auth.logout()} />
       </header>
 

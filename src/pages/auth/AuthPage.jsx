@@ -26,8 +26,9 @@ export default function LoginPage() {
         alert("Account created")
         // Signed in
         var user = userCredential.user;
-        console.log(user)
-        window.location.reload()
+        //console.log(user)
+        //sessionStorage.setItem("currentUser",1)
+        //window.location.reload()
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -45,14 +46,15 @@ export default function LoginPage() {
    await  firebase.auth().signInWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Signed in
-    //Auth.setLoggedIn(true);
+    
     localStorage.setItem('isIn', true)
 
     alert("welcome back")
     var user = userCredential.user;
-    console.log(user)
-    window.location.reload()
-    // ...
+    console.log(user.email)
+   sessionStorage.setItem("currentUser",user.email)
+  window.location.reload()
+  
   })
   .catch((error) => {
     var errorCode = error.code;

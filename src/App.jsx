@@ -34,11 +34,9 @@ export default function App() {
   
   const json_mockup = require("./api/api_users.json");
   const musers = json_mockup;
-  
 
   // Constants
-  //Auth.bindLoggedInStateSetter(setLoggedIn);
-//console.log(loggedIn)
+
 
   //Methods
 
@@ -63,8 +61,8 @@ export default function App() {
 
   //TODO - Fetching data
  
-console.log("data",musers)
-console.log("loggedIn ?",loggedIn)
+//console.log("data",musers)
+//console.log("loggedIn ?",loggedIn)
 
   // Components
   const loggedInRouter = (
@@ -108,7 +106,7 @@ console.log("loggedIn ?",loggedIn)
               </Route>
             </Switch>
 
-            <Footer loggedIn={loggedIn} />
+            <Footer loggedIn={loggedIn} users={musers} />
             <UploadButton users={musers} />
           </div>
         )}

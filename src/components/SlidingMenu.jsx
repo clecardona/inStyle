@@ -17,12 +17,16 @@ import signout from "../assets/img/icons/signout.svg";
 import discover from "../assets/img/icons/telescope.svg";
 import vote from "../assets/img/icons/vote.svg";
 import profile from "../assets/img/icons/woman.svg";
+import Methods from "../services/Methods";
 
 import AuthApi from "../api/AuthApi";
 
-export default function SlidingMenu() {
+export default function SlidingMenu({ users }) {
   const [t, i18n] = useTranslation("common");
-  const currentUserEmail = AuthApi.getCurrentUser();
+  //const currentUserEmail = sessionStorage.getItem("currentUser")
+  //console.log(currentUserEmail)
+  const currentUserId =4 /* Methods.getIdByEmail(users,"powerrangers@gmail.com") */
+  //console.log(currentUserId)
 
   function onLogout() {
     Auth.logout();
@@ -44,7 +48,7 @@ export default function SlidingMenu() {
         <a
           id="home"
           className="menu-item-text"
-          href={"/profile/" + currentUserEmail}
+          href={"/profile/" + currentUserId}
         >
           {t("sidebar.profile")}
         </a>
