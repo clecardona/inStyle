@@ -19,7 +19,7 @@ export default function VotingPage({ users }) {
   const [votedPictures, setVotedPictures] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
-  const currentUserEmail = AuthApi.getCurrentUser();
+  const currentUserEmail = sessionStorage.getItem("currentUser")
 
 /*   useEffect(async () => {
     const res = await ApiCalls.getVotedPictures();
@@ -30,15 +30,15 @@ export default function VotingPage({ users }) {
     }
   }, []); */
 
-  function onFetchSuccess(res) {
+ /*  function onFetchSuccess(res) {
     setVotedPictures(res);    
-  }
+  } */
 
-  function onFetchFail(error) {
+  /* function onFetchFail(error) {
     console.log("Error", error);    
-  }
+  } */
 
-  console.log(votedPictures)
+  //console.log(votedPictures)
 
   //not returning current user pics
   const otherUsers = users.filter((i) => {

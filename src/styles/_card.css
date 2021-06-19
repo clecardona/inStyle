@@ -13,9 +13,7 @@
   justify-items: center;
 }
 
-.card-small-container img {
-  /* border-radius: 25px; */
-}
+
 
 .card-small {
   position: relative;
@@ -41,9 +39,7 @@
 
 .card-img {
     position: relative;
-    background-blend-mode:multiply;
-    opacity: 80%;
-  
+    
     width: 300px ;
     height: 300px;
     overflow: hidden;
