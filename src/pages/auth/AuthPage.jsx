@@ -82,6 +82,14 @@ export default function LoginPage() {
         <div className="auth-buttons-wrapper">
             <LandingOverlay onSubmit={login} signIn={true} />
             <LandingOverlay onSubmit={register} signIn={false} />
+            <button 
+            id="visitor" 
+            onClick={
+              ()=>{localStorage.setItem('isIn', true)
+              window.location.reload()}
+              
+              }
+              >Enter as simple visitor</button>
           </div>
           </div>
       </main>

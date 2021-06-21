@@ -20,6 +20,7 @@
     #a1c4fd 100%
   );
   border: none;
+  cursor: pointer;
 }
 
 .btn-blue:hover {
@@ -32,9 +33,9 @@
 
 .btn-white {
   width: 200px;
-  flex: 1 1 auto;
+  
   margin: 5px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 
   text-transform: capitalize;
@@ -46,6 +47,7 @@
   background-color: transparent;
 
   border: 2px solid white;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 800px) {
