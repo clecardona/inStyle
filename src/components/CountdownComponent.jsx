@@ -11,7 +11,7 @@ export default function CountdownComponent() {
 
 
     return (
-        <div className="countdown">
+        <div className="circle-drawer countdown">
             <p> New King in </p>
             <strong><Countdown date={tomorrow} daysInHours={true}/> </strong> 
               

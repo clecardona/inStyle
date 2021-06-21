@@ -10,7 +10,6 @@ import AuthApi from "../../api/AuthApi";
 import SlidingMenu from "../../components/SlidingMenu";
 import Methods from "../../services/Methods";
 
-
 export default function VotingPage({ users }) {
   // Constants
   var moment = require("moment");
@@ -19,9 +18,9 @@ export default function VotingPage({ users }) {
   const [votedPictures, setVotedPictures] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
-  const currentUserEmail = sessionStorage.getItem("currentUser")
+  const currentUserEmail = sessionStorage.getItem("currentUser");
 
-/*   useEffect(async () => {
+  /*   useEffect(async () => {
     const res = await ApiCalls.getVotedPictures();
     try {
       onFetchSuccess(res.data);
@@ -30,7 +29,7 @@ export default function VotingPage({ users }) {
     }
   }, []); */
 
- /*  function onFetchSuccess(res) {
+  /*  function onFetchSuccess(res) {
     setVotedPictures(res);    
   } */
 
@@ -66,7 +65,7 @@ export default function VotingPage({ users }) {
   });
 
   //handle the no picture to be displayed
-  if (pics.length === 0) {
+  /* if (pics.length === 0) {
     console.log("no users");
     return (
       <div className="general-container">
@@ -87,7 +86,7 @@ export default function VotingPage({ users }) {
         </main>
       </div>
     );
-  } else {
+  } else { */
     const picsIds = pics.map((i) => i.id);
     const randomPictureIndex = Math.floor(Math.random() * picsIds.length);
     const randomPictureId = picsIds[randomPictureIndex];
@@ -97,8 +96,8 @@ export default function VotingPage({ users }) {
     });
 
     //get the user associated
-    const userIdAssociated = randomPicture[0].owner;
-    const userAssociated = Methods.getUserById(users, userIdAssociated);
+    //const userIdAssociated = randomPicture[0].owner;
+    const userAssociated = Methods.getUserById(users, 7);
 
     //console.log(randomPictureId)
     //console.log(userAssociated)
@@ -122,19 +121,25 @@ export default function VotingPage({ users }) {
           <div>
             <div className="winner-content">
               <UserMeta user={userAssociated} />
+              {/* <div className="score-timestamp">
+      
+              13 hours ago
+              </div> */}
 
               <div className="wrapper-img-square">
-                <img id="main-img" src={randomPicture[0].url} alt="main-logo" />
+                <img
+                  id="main-img"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS45H2g5o_jLESz5RWe6Kaa0JopkJ2y5Kvn5w&usqp=CAU"
+                  alt="main-logo"
+                />
               </div>
 
-              <div className="score-timestamp">
-                Posted - <Moment fromNow>{randomPicture[0].timestamp}</Moment>
-              </div>
+              
               <div className="under-img-container">
                 <VoteComponent
                   hide={false}
                   refresh={true}
-                  pictureId={randomPicture[0].id}
+                  /* pictureId={randomPicture[0].id} */
                 />
               </div>
             </div>
@@ -143,4 +148,4 @@ export default function VotingPage({ users }) {
       </div>
     );
   }
-}
+
